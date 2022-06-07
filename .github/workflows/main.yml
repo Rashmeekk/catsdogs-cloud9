@@ -40,7 +40,7 @@ jobs:
         env: 
           ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
           ECR_REPOSITORY: assignment_repo
-          IMAGE_TAG: catsv0.2
+          IMAGE_TAG: catsv0.1
           
       # Runs a set of commands
         run: |
@@ -49,7 +49,7 @@ jobs:
           # Build the docker image 
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           # Run the container to test
-          docker run -d -p 8080:80 --name assignment-cats $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker run -d -p 8080:80 --name catsapp $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           # list all the containers
           docker ps
           echo " sleep 10 seconds for container to run"
@@ -61,7 +61,7 @@ jobs:
         env: 
           ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
           ECR_REPOSITORY: assignment_repo
-          IMAGE_TAG: dogsv0.2
+          IMAGE_TAG: dogsv0.1
           
       # Runs a set of commands
         run: |
@@ -69,7 +69,7 @@ jobs:
           ls -ltra
           # Build the docker image 
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker run -d -p 8081:80 --name clo835-assignment1-dogs $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TA
+          docker run -d -p 8081:80 --name dogsapp $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TA
           docker ps
           echo " sleep 10 seconds for container to run"
           sleep 10
