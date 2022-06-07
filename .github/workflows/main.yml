@@ -53,8 +53,8 @@ jobs:
           # list all the containers
           docker ps
           echo " sleep 10 seconds for container to run"
-          sleep 10
-          curl localhost -vvv
+          sleep 20
+          curl localhost:8080 -vvv
           # Push the docker image to ECR repository
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           
@@ -74,7 +74,7 @@ jobs:
           docker ps
           echo " sleep 10 seconds for container to run"
           sleep 10
-          curl localhost -vvv
+          curl localhost:8081 -vvv
           
           # Push the docker image to ECR repository
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
