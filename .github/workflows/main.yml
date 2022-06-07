@@ -69,7 +69,7 @@ jobs:
           ls -ltra
           # Build the docker image 
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker run -d -p 8081:80 --name dogsapp $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TA
+          docker run -d -p 8081:80 --name dogsapp $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker ps
           echo " sleep 10 seconds for container to run"
           sleep 10
